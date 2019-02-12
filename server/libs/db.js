@@ -10,7 +10,7 @@ mongoose.connect(`mongodb://mongo`, {
 
 const db = mongoose.connection;
 
-db.on('error', function () {throw new Error(console.log('Connection failed'))});
+db.on('error', function () {throw new Error('Connection failed')});
 db.on('open', function () {console.log('Connected')});
 
 module.exports = db;
