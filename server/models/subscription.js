@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const subscriptionSchema = new Schema({
     'title' : String,
     'description': String,
-    'subIcon' : String,
+    'img' : {url: String, alt: String},
     'price': Number,
     'created_at' : Date,
     'updated_at' : Date,

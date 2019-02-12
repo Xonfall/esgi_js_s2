@@ -8,6 +8,7 @@ const userSchema = new Schema({
     'lastName' : String,
     'email' : String,
     'birthday' : {type: Number, min: 1950},
+    'jwtToken' : String,
     'created_at' : Date,
     'updated_at' : Date,
 });
