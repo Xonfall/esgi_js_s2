@@ -31,4 +31,7 @@ services:
       MONGODB_USER: "root"
       MONGODB_PASSWORD: "password"
       MONGODB_DB_NAME: "SampleCollections"
-    command: 'npm start'
+    command:
+      - /bin/sh
+      - '-c'
+      - 'npm install && npm run start'
