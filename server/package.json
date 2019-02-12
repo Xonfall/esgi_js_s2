@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"En test\"",
-    "start": "node index.js"
+    "start": "./node_modules/.bin/nodemon index.js"
   },
   "author": "Jérémy Bachayani",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongoose": "^5.4.11"
+    "mongoose": "^5.4.11",
+    "nodemon": "^1.18.10"
   }
 }
