@@ -10,6 +10,11 @@ const subscriptionSchema = new Schema({
     'price': Number,
     'created_at' : Date,
     'updated_at' : Date,
+    'users': {
+        id: Number,
+        firstName: String,
+        lastName: String,
+    }
 });
 
 module.exports = db.model('Subscription', subscriptionSchema);
