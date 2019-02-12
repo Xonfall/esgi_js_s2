@@ -1,1 +1,1 @@
-# Projec JS express + mongoDB
+# Project JS express + mongoDB
