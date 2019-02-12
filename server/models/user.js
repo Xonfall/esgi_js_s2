@@ -7,9 +7,9 @@ const userSchema = new Schema({
     'firstName' : String,
     'lastName' : String,
     'email' : String,
-    'birthday' : Date,
+    'birthday' : {type: Number, min: 1950},
     'created_at' : Date,
     'updated_at' : Date,
 });
 
-module.exports = db.models('User', userSchema);
+module.exports = db.model('User', userSchema);
