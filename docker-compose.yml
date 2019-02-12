@@ -21,12 +21,12 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
 
   server:
-    image: 'node:10-alpine'
+    build: './'
     volumes:
       - './server:/home/node/app'
     working_dir: '/home/node/app'
     ports:
-      - 3000:3000
+      - 127.0.0.1:3000:3000
     environment:
       MONGODB_USER: "root"
       MONGODB_PASSWORD: "password"
