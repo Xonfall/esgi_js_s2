@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Banner from '../components/Banner';
-import ToggleButton from "../components/ToggleButton";
+import BannerComponent from '../components/BannerComponent';
+import ToggleButtonComponent from "../components/ToggleButtonComponent";
 
 export default class ToggleButtonContainer extends Component {
     state =  {
@@ -17,8 +17,8 @@ export default class ToggleButtonContainer extends Component {
     render() {
         return (
             <React.Fragment>
-                <ToggleButton toggleHandler={this.toggleTheme}/>
-                <Banner content={this.state.theme}/>
+                <ToggleButtonComponent toggleHandler={this.toggleTheme}/>
+                <BannerComponent content={this.state.theme}/>
             </React.Fragment>
         );
     }
