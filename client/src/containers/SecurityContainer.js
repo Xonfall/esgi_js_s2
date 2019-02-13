@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from "react-router-dom";
 import LoginForm from "./LoginForm";
-import SignUpForm from './SignUpForm';
+import RegisterForm from './RegisterForm';
 
 export default class SecurityContainer extends React.Component {
 
@@ -37,7 +37,7 @@ export default class SecurityContainer extends React.Component {
         return (
             <Switch>
                 <Route path="/security/login" render={() => <LoginForm onSubmit={this.handleSubmit}/> } />
-                <Route path="/security/signup" render={() => <SignUpForm onSubmit={this.handleSubmit2}/> } />
+                <Route path="/security/register" render={() => <RegisterForm onSubmit={this.handleSubmit2}/> } />
             </Switch>
         );
     }

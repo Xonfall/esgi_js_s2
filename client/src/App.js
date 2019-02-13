@@ -14,7 +14,7 @@ class App extends Component {
           <BrowserRouter>
             <React.Fragment>
               <Link to='/security/login'>Connexion</Link>
-              <Link to='/security/signup'>S'inscrire</Link>
+              <Link to='/security/register'>S'inscrire</Link>
               <Link to='/movies'>List de film</Link>
               <Route path="/security" component={SecurityContainer}/>
               <Route path="/movies" component={MovieContainer}/>
