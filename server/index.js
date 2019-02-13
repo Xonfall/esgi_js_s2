@@ -5,6 +5,9 @@ const userRouter = require('./routes/users');
 const security = require('./middlewares/security');
 const securityRouter = require('./routes/security');
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(bodyparser.json());
 app.use(security.verifyToken);
