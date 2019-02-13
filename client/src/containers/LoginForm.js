@@ -12,12 +12,12 @@ export default class LoginForm extends Component {
         this.setState({
             [field]: input.value
         })
-    };
+    }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state)
-    };
+        this.props.onSubmit(this.state);
+    }
 
     render() {
         return (
