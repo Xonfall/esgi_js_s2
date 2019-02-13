@@ -21,7 +21,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
 
   server:
-    build: './'
+    build: './server'
     volumes:
       - './server:/home/node/app'
     working_dir: '/home/node/app'
@@ -45,6 +45,6 @@ services:
     command:
       - /bin/sh
       - '-c'
-      - 'yarn start'
+      - 'npm update && npm run start'
     ports:
       - 127.0.0.1:3001:3000
