@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
             user.lastName = req.body.lastName;
             user.email = req.body.email;
             user.password = req.body.password;
+            user.created_at = Date();
 
             user.save( function (error, result){
                 console.log(error);
