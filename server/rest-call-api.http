@@ -8,3 +8,5 @@ Content-Type: application/json
 
 GET http://127.0.0.1:3000/movies
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJuYW1lIjoidXNlciJ9LCJpYXQiOjE1NDk5ODc3NzUsImV4cCI6MTU0OTk5MTM3NX0.w4FqtZv-YqhS-eITeKNu-UBr4PMLh_zOFlmQ3Z4zZSo
+
+###
