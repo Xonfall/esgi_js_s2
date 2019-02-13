@@ -28,7 +28,7 @@ export default class SignUpForm extends Component {
                 <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "lastName")}/>
                 <label>Prénom</label>
                 <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "firstName")}/>
-                <label>Prénom</label>
+                <label>Email</label>
                 <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "email")}/>
                 <label>Password</label>
                 <input type="password" onKeyUp={(event) => this.handleKeyUp(event, 'password')}/>
