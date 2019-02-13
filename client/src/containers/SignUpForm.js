@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-export default class LoginForm extends Component {
+export default class SignUpForm extends Component {
     state = {
-        username: '',
-        password: ''
+        firstName: '',
+        lastName: '',
+        password: '',
+        email: ''
     };
 
     handleKeyUp = (event, field) => {
@@ -22,11 +24,15 @@ export default class LoginForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>Username</label>
-                <input onKeyUp={(event) => this.handleKeyUp(event, "username")}/>
+                <label>Nom</label>
+                <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "lastName")}/>
+                <label>Prénom</label>
+                <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "firstName")}/>
+                <label>Prénom</label>
+                <input type="text" onKeyUp={(event) => this.handleKeyUp(event, "email")}/>
                 <label>Password</label>
                 <input type="password" onKeyUp={(event) => this.handleKeyUp(event, 'password')}/>
-                <button type="submit">Se connecter</button>
+                <button type="submit">S'inscrire</button>
             </form>
         )
     }
