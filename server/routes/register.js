@@ -3,7 +3,7 @@ const User = require('../models/user');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-    console.log(req.body);
+    console.log("REGISTER::", req.body);
     if (
         req.body.firstName !== null &&
         req.body.lastName !== null &&
@@ -25,7 +25,11 @@ router.post('/', (req, res) => {
             user.save( function (error, result){
                 console.log(error);
                 console.log(result)
-                res.send(`Félicitation ${user.firstName} vous êtes inscrit`);
+                const response = {
+                    "result": "OK",
+                    "message": `Félicitation ${user.firstName} vous êtes inscrit`
+                }
+                res.send(response);
             })
         }
     }

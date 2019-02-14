@@ -1,3 +1,5 @@
+const serverUrl = 'http://localhost:3000';
+
 const logUser = (data) => {
     return {
         type: 'LOGIN',
@@ -12,19 +14,19 @@ const registerUser = (data) => {
     }
 }
 
-export const login = (username, password, dispatch) => {
-    const data = {username, password};
+export const login = (email, password, dispatch) => {
+    const data = {email, password};
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
-    fetch('http://localhost:3000/login_check', {
+    fetch(serverUrl + '/login_check', {
         method: 'POST',
         mode: 'cors',
         headers: myHeaders,
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => dispatch(logUser(data)))
-    .catch(error => console.log(error))
+        .then(response => response.json())
+        .then(data => dispatch(logUser(data)))
+        .catch(error => console.log(error))
 
     return {
         type: 'REQUEST_LOGIN',
@@ -32,19 +34,28 @@ export const login = (username, password, dispatch) => {
     }
 };
 
-export const register = (fisrstName, lastName, email, password, dispatch) => {
-    const data = {fisrstName, lastName, email, password};
+/**
+ *
+ * @param firstName
+ * @param lastName
+ * @param email
+ * @param password
+ * @param dispatch
+ * @returns {{payload: {}, type: string}}
+ */
+export const register = (firstName, lastName, email, password, dispatch) => {
+    const data = {firstName, lastName, email, password};
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
-    fetch('http://localhost:3000/register', {
+    fetch(serverUrl + '/register', {
         method: 'POST',
         mode: 'cors',
         headers: myHeaders,
         body: JSON.stringify(data)
     })
-    .then(response => response.json())
-    .then(data => dispatch(registerUser(data)))
-    .catch(error => console.log(error))
+        .then(response => response.json())
+        .then(data => dispatch(registerUser(data)))
+        .catch(error => console.log(error))
 
     return {
         type: 'REQUEST_REGISTER',
