@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
                 user.save( function (error, result){
                     console.log(error);
                     console.log(result)
-                    res.send(`Félicitation ${user.firstName} vous êtes inscrit`);
+                    res.send({firstName});
                 })
         }
     }
