@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class LoginForm extends Component {
     state = {
-        username: '',
+        email: '',
         password: ''
     };
 
@@ -22,8 +22,8 @@ export default class LoginForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>Username</label>
-                <input onKeyUp={(event) => this.handleKeyUp(event, "username")}/>
+                <label>Email</label>
+                <input onKeyUp={(event) => this.handleKeyUp(event, "email")}/>
                 <label>Password</label>
                 <input type="password" onKeyUp={(event) => this.handleKeyUp(event, 'password')}/>
                 <button type="submit">Se connecter</button>

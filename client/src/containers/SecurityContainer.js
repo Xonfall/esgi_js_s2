@@ -9,9 +9,9 @@ class SecurityContainer extends React.Component {
 
     handleSubmit = (data) => {
         // Utilisé dans le const mapDispatchToProps
-        //this.props.dispatch(login(data.username, data.password, this.props.dispatch));
-        //this.props.dispatch(data.username, data.password);
-        this.props.login(data.username, data.password);
+        //this.props.dispatch(login(data.email, data.password, this.props.dispatch));
+        //this.props.dispatch(data.email, data.password);
+        this.props.login(data.email, data.password);
     };
 
     handleSubmit2 = (data) => {
@@ -40,7 +40,7 @@ class SecurityContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (username, password) => dispatch(login(username, password, dispatch))
+        login: (email, password) => dispatch(login(email, password, dispatch))
     }
 }
 

@@ -12,8 +12,8 @@ const registerUser = (data) => {
     }
 }
 
-export const login = (username, password, dispatch) => {
-    const data = {username, password};
+export const login = (email, password, dispatch) => {
+    const data = {email, password};
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
     fetch('http://localhost:3000/login_check', {
