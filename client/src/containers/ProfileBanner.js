@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class ProfileBanner extends Component {
     render() {
         const {user, isLogged} = this.props;
-        return <Banner content={isLogged ? user.name : 'Not connected'}></Banner>
+        return <Banner content={isLogged ? user.token : 'Not connected'}></Banner>
     }
 }
 
@@ -24,6 +24,6 @@ const mapDispatchToProps = function(dispatch) {
 }
 
 const connectGenerator = connect(mapStateToProps, mapDispatchToProps)
-const ConnectedProfileBanner = connect()(ProfileBanner);
+const ConnectedProfileBanner = connectGenerator(ProfileBanner);
 
 export default ConnectedProfileBanner;
