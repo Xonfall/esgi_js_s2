@@ -4,12 +4,13 @@ import ToggleButtonContainer from "./containers/ToggleButtonContainer";
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import MovieContainer from "./containers/MovieContainer"
 import SecurityContainer from "./containers/SecurityContainer"
+import ProfileBanner from './containers/ProfileBanner'
 
 class App extends Component {
   render() {
     return (
         <div className="App">
-          
+          <ProfileBanner/>
           <ToggleButtonContainer />
           <BrowserRouter>
             <React.Fragment>

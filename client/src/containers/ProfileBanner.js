@@ -9,6 +9,21 @@ class ProfileBanner extends Component {
     }
 }
 
+const mapStateToProps = function(state, ownProps) {
+    const {security: {user, isLogged}} = state;
+    return {
+        user,
+        isLogged
+    };
+}
+
+const mapDispatchToProps = function(dispatch) {
+    return {
+        //logUser: (username, password) => dispatch(logUser(username, password))
+    }
+}
+
+const connectGenerator = connect(mapStateToProps, mapDispatchToProps)
 const ConnectedProfileBanner = connect()(ProfileBanner);
 
 export default ConnectedProfileBanner;
