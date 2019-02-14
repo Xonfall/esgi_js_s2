@@ -7,6 +7,7 @@ const userSchema = new Schema({
     'firstName' : String,
     'lastName' : String,
     'email' : String,
+    'password' : String,
     'birthday' : {type: Number, min: 1950},
     'jwtToken' : String,
     'created_at' : Date,
