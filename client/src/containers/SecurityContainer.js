@@ -12,7 +12,7 @@ class SecurityContainer extends React.Component {
     };
 
     handleSubmitRegister = (data) => {
-        this.props.register(data.firstName, data.lastName, data.username, data.password);
+        this.props.register(data.firstName, data.lastName, data.email, data.password);
     };
 
     render() {
