@@ -18,7 +18,5 @@ app.use('/', securityRouter);
 app.use('/movies', movieRouter);
 app.use('/users', userRouter);
 
-app.route('', )
-
 
 app.listen(3000, () => console.log('Listening in port 3000'));

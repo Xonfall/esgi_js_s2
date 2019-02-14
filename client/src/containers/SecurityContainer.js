@@ -3,11 +3,12 @@ import {Route, Switch} from "react-router-dom";
 import LoginForm from "./LoginForm";
 import RegisterForm from './RegisterForm';
 import {connect} from 'react-redux';
-import {login, register} from '../redux/actions/security';
+import {login} from '../redux/actions/security';
 
 class SecurityContainer extends React.Component {
 
-    handleSubmitLogin = (data) => {
+    handleSubmit = (data) => {
+        // Utilisé dans le const mapDispatchToProps
         this.props.login(data.email, data.password);
     };
 
@@ -18,8 +19,8 @@ class SecurityContainer extends React.Component {
     render() {
         return (
             <Switch>
-                <Route path="/security/login" render={() => <LoginForm onSubmit={this.handleSubmitLogin}/>}/>
-                <Route path="/security/register" render={() => <RegisterForm onSubmit={this.handleSubmitRegister}/>}/>
+                <Route path="/security/login" render={() => <LoginForm onSubmit={this.handleSubmit}/>}/>
+                <Route path="/security/register" render={() => <RegisterForm onSubmit={this.handleSubmit2}/>}/>
             </Switch>
         );
     }
@@ -27,8 +28,7 @@ class SecurityContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (email, password) => dispatch(login(email, password, dispatch)),
-        register: (firstName, lastName, email, password) => dispatch(register(firstName, lastName, email, password, dispatch))
+        login: (email, password) => dispatch(login(email, password, dispatch))
     }
 }
 
