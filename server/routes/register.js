@@ -18,10 +18,11 @@ router.post('/', [
         });
     }
 
-    const {firstName, lastName, email, password} = req.body;
+    const {firstName, lastName, password} = req.body;
+    const email = req.body.email.toLowerCase();
 
     // Check if user exist
-    let countUser = User.countDocuments({email: req.body.email}).then(
+    let countUser = User.countDocuments({email: email}).then(
         data => {
             if (data > 0) {
                 return res.status(200).send({
