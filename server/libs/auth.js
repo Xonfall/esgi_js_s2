@@ -4,11 +4,12 @@ const createToken = function (user = {}) {
     return jwt.sign({
         payload: {
             firstName: user.firstName,
-            username: user.username,
+            lastName: user.lastName,
+            email: user.email
         }
     }, process.env.JWT_SECRET, {
         expiresIn: 3600,
-        algorithm: 'HS256'
+        algorithm: 'HS512'
     });
 };
 
