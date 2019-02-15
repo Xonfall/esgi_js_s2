@@ -3,8 +3,13 @@ const router = express.Router();
 const Event = require('../models/event');
 
 router.get('/', (req, res) => {
-    console.log("GET")
-    res.send({result: 'true'});
+    Event.find().then(data => {
+        if(data != null) {
+            res.send(data);
+        } else {
+            res.send({result: 'Vide'});
+        }
+    });
 });
 
 router.post('/create', (req, res) => {
@@ -21,8 +26,8 @@ router.post('/create', (req, res) => {
         const event = new Event({title, description, img, adresse, price, eventDate, created_at: Date()});
 
         event.save( function (error, result){
-            console.log(error)
-            console.log(result)
+            console.log(error);
+            console.log(result);
             res.send({
                 result: 'OK',
                 title

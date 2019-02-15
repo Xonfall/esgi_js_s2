@@ -4,7 +4,7 @@ import eventReducer from './event';
 
 const rootReducer = combineReducers({
     security: securityReducer,
-    event: eventReducer
+    events: eventReducer
 });
 
 export default rootReducer;

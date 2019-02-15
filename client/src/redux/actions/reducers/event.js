@@ -9,7 +9,7 @@ const reducer = function(state = {
             });
         case 'POST_EVENT':
             return Object.assign({}, state, {
-                title: action.payload.title
+                events: [...state.events, action.payload]
             });
         default:
             return state;

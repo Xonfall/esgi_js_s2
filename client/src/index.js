@@ -16,7 +16,7 @@ ReactDOM.render(
     </Provider>
 , document.getElementById('root'));
 
-store.dispatch(callEvent());
+store.dispatch(callEvent(store.dispatch));
 
 
 // If you want your app to work offline and load faster, you can change

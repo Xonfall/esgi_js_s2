@@ -12,7 +12,7 @@ const postEvent = (data) => {
     }
 };
 
-export const callEvent = (title, dispatch) => {
+export const callEvent = (dispatch) => {
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
     fetch('http://localhost:3000/events', {
@@ -20,7 +20,8 @@ export const callEvent = (title, dispatch) => {
         mode: 'cors',
         headers: myHeaders,
     })
-        .then(response => dispatch(getEvents(response.json())))
+        .then(response => response.json())
+        .then(data => dispatch(getEvents(data)))
         .catch(error => console.log(error));
 
     return {

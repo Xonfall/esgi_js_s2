@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import EventForm from "./EventForm";
 import {addEvent, callEvent} from '../redux/actions/eventsAction'
 import EventList from "../components/EventList";
+import EventComponent from "../components/EventComponent";
 
 class EventContainer extends React.Component {
 
@@ -15,16 +16,26 @@ class EventContainer extends React.Component {
         return (
             <Switch>
                 <Route path="/events/create" render={() => <EventForm onSubmit={this.handleSubmit}/>}/>
+                <Route exact path="/events/" render={() => <EventList events={this.props.events}/>}/>
+                <Route path="/events/:title" render={({match:{params:{title}}}) => <EventComponent event={this.props.events.find(event => event.title === title)}/>}/>
             </Switch>
         );
     }
 }
 
+const mapStateToProps = function(state, ownProps) {
+    const {events: {events}} = state;
+    return {
+        events,
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         addEvent: (data) => dispatch(addEvent(data, dispatch)),
-        callEvent: (title) => dispatch(callEvent(dispatch)),
+        callEvent: (data) => dispatch(callEvent(dispatch)),
     }
 };
 
-export default connect(undefined, mapDispatchToProps)(EventContainer);
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventContainer);
