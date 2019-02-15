@@ -7,7 +7,7 @@ import Banner from "./ProfileBanner";
 class Event extends Component {
     render() {
         const {user, isLogged} = this.props;
-        return <EventList events={isLogged ? user.token : 'Not connected'}></EventList>
+        return <EventList events={""}></EventList>
     }
 }
 

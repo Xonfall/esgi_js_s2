@@ -30,6 +30,6 @@ const mapDispatchToProps = dispatch => {
         login: (email, password) => dispatch(login(email, password, dispatch)),
         register: (firstName, lastName, email, password) => dispatch(register(firstName, lastName, email, password, dispatch))
     }
-}
+};
 
 export default connect(undefined, mapDispatchToProps)(SecurityContainer);

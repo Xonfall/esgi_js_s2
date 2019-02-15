@@ -29,11 +29,10 @@ export const callEvent = (title, dispatch) => {
     }
 };
 
-export const addEvent = (title, dispatch) => {
-    const data = {title};
+export const addEvent = (data, dispatch) => {
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
-    fetch('http://localhost:3000/events', {
+    fetch('http://localhost:3000/events/create', {
         method: 'POST',
         mode: 'cors',
         headers: myHeaders,

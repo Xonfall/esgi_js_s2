@@ -2,18 +2,19 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import {connect} from 'react-redux';
 import EventForm from "./EventForm";
-import {addEvent} from '../redux/actions/eventsAction'
+import {addEvent, callEvent} from '../redux/actions/eventsAction'
+import EventList from "../components/EventList";
 
 class EventContainer extends React.Component {
 
     handleSubmit = (data) => {
-        this.props.addEvent(data.title);
+        this.props.addEvent(data);
     };
 
     render() {
         return (
             <Switch>
-                <Route path="/events" render={() => <EventForm onSubmit={this.handleSubmit}/>}/>
+                <Route path="/events/create" render={() => <EventForm onSubmit={this.handleSubmit}/>}/>
             </Switch>
         );
     }
@@ -21,8 +22,9 @@ class EventContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addEvent: (title) => dispatch(addEvent(title, dispatch)),
+        addEvent: (data) => dispatch(addEvent(data, dispatch)),
+        callEvent: (title) => dispatch(callEvent(dispatch)),
     }
-}
+};
 
 export default connect(undefined, mapDispatchToProps)(EventContainer);

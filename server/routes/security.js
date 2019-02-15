@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-const createToken = require('../libs/auth').createToken
+const createToken = require('../libs/auth').createToken;
 
 router.post('/login_check', (req, res) => {
     User.findOne({email: req.body.email}).then(data => {
