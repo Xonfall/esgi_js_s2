@@ -6,6 +6,7 @@ const userRouter = require('./routes/users');
 const registerRouter = require('./routes/register');
 const security = require('./middlewares/security');
 const securityRouter = require('./routes/security');
+const eventRouter = require('./routes/events');
 const app = express();
 
 app.use(cors());
@@ -17,6 +18,9 @@ app.use('/', securityRouter);
 
 app.use('/movies', movieRouter);
 app.use('/users', userRouter);
+app.use('/events', eventRouter);
+
+app.route('', );
 
 
 app.listen(3000, () => console.log('Listening in port 3000'));
