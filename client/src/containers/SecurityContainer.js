@@ -1,38 +1,25 @@
 import React from 'react';
-import {Switch, Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import LoginForm from "./LoginForm";
 import RegisterForm from './RegisterForm';
-import { connect } from 'react-redux';
-import { login } from '../redux/actions/security';
+import {connect} from 'react-redux';
+import {login, register} from '../redux/actions/security';
 
 class SecurityContainer extends React.Component {
 
-    handleSubmit = (data) => {
-        // Utilisé dans le const mapDispatchToProps
-        //this.props.dispatch(login(data.email, data.password, this.props.dispatch));
-        //this.props.dispatch(data.email, data.password);
+    handleSubmitLogin = (data) => {
         this.props.login(data.email, data.password);
     };
 
-    handleSubmit2 = (data) => {
-        fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }),
-            body: JSON.stringify(data),
-            mode: 'cors'
-        }).then(response => response.json())
-            .then(data => localStorage.setItem('token', data.token))
-            .catch(error => console.log("Error", error));
+    handleSubmitRegister = (data) => {
+        this.props.register(data.firstName, data.lastName, data.username, data.password);
     };
 
     render() {
         return (
             <Switch>
-                <Route path="/security/login" render={() => <LoginForm onSubmit={this.handleSubmit}/> } />
-                <Route path="/security/register" render={() => <RegisterForm onSubmit={this.handleSubmit2}/> } />
+                <Route path="/security/login" render={() => <LoginForm onSubmit={this.handleSubmitLogin}/>}/>
+                <Route path="/security/register" render={() => <RegisterForm onSubmit={this.handleSubmitRegister}/>}/>
             </Switch>
         );
     }
@@ -40,7 +27,8 @@ class SecurityContainer extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (email, password) => dispatch(login(email, password, dispatch))
+        login: (email, password) => dispatch(login(email, password, dispatch)),
+        register: (firstName, lastName, email, password) => dispatch(register(firstName, lastName, email, password, dispatch))
     }
 }
 
