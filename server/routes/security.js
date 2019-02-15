@@ -18,13 +18,8 @@ router.post('/login_check', [
     }
 
     const {email, password} = req.body;
-    console.log("EMAIL::", email);
-    console.log("PWD::", password);
-
 
     User.findOne({email: email}).then(data => {
-        console.log("DATA EMAIL::", data.email);
-        console.log("DATA EMAIL::", data.password);
         if (data !== undefined && email === data.email && password === data.password) {
             const token = createToken({
                 firstName: data.firstName,
